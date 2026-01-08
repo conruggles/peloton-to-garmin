@@ -30,7 +30,7 @@ jobs:
 
     - name: 🗃 Create config file
       env:
-        DEFAULT_WORKOUT_NUM: 5
+        DEFAULT_WORKOUT_NUM: 1
       run: |
         cat <<EOT > /app/configuration.local.json 
         {
@@ -52,7 +52,7 @@ jobs:
             }
           },
           "Peloton": {
-            "NumWorkoutsToDownload": ${{ github.event.inputs.workoutsToDownload || env.DEFAULT_WORKOUT_NUM }},
+            "NumWorkoutsToDownload": ${{ env.DEFAULT_WORKOUT_NUM }},
           },
           "Garmin": {
             "Upload": true,
